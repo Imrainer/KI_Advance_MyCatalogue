@@ -48,22 +48,11 @@ class AuthControllers extends ApiController
     {
         $data = $requestRegister->only(
             'name',
+            'email',
+            'phone', 
             'password',
             'password_confirmation'
         );
-
-        $emailPhone = $requestRegister->input('email_phone');
-        $userData = [];
-
-        if (filter_var($emailPhone, FILTER_VALIDATE_EMAIL)) {
-            // Input berupa email
-            $userData['email'] = $emailPhone;
-        } else {
-            // Input berupa nomor telepon
-            $userData['phone'] = $emailPhone;
-        }
-
-        $data = array_merge($data, $userData);
         
         $data['id'] = Str::uuid()->toString(); 
 
