@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\User;
 use App\Models\Categories;
-use App\Models\Note;
+use App\Models\Catalogue;
+use App\Models\City;
+use App\Models\Province;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Controllers\Controller;
 
@@ -27,10 +29,11 @@ class MonitoringControllers extends Controller
        $admin = session('id');
        $admin = Admin::where('id', $admin)->first();
        $userCount = User::count();
-       $noteCount = Note::count();
+       $catalogueCount = Catalogue::count();
        $categoriesCount = Categories::count();
-    //    $sessionCount = $this->GetSessionCount();
-       return view('pages/Monitoring', compact('admin','userCount', 'categoriesCount', 'noteCount'));
+       $provinceCount = Province::count();
+       $cityCount = City::count();
+       return view('pages/Monitoring', compact('admin','userCount', 'provinceCount', 'catalogueCount','cityCount'));
     }
 
 }

@@ -25,6 +25,10 @@ class Province extends Model
         return $this->hasMany(Catalogue::class);
     } 
 
+    public function city() {
+        return $this->hasMany(City::class);
+    } 
+
     public function getCreatedAtAttribute($value)
     {
         return date('YmdHis', strtotime($value));

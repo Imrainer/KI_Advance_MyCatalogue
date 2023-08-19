@@ -22,11 +22,15 @@ class Catalogue extends Model
     public $incrementing = false;
 
     public function categories() {
-        return $this->belongsTo(Categories::class, 'category_id');
+        return $this->belongsTo(Categories::class, 'categories_id');
     } 
 
-    public function provinceId() {
+    public function province() {
         return $this->belongsTo(Province::class, 'province_id');
+    } 
+
+    public function city() {
+        return $this->belongsTo(City::class, 'city_id');
     } 
 
     public function photoCarousel()

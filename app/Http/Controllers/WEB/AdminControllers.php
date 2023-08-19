@@ -69,6 +69,8 @@ class AdminControllers extends Controller
         $data = Admin::where('id', $data)->first();
         $data->update([
             'name' =>($request->input('name')),
+            'email' =>($request->input('email')),
+            'phone' =>($request->input('phone')),
         ]);
     
         return redirect('/profile/admin')->with('Profil berhasil diperbarui');

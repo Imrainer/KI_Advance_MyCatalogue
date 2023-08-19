@@ -40,7 +40,7 @@ class AuthControllers extends Controller
                 'photo'=>$admin->photo,
             ]);
 
-        return redirect('/dashboard')->with('success','Selamat Datang Kembali Admin');
+        return redirect('/dashboard')->with('success','Selamat Datang Kembali Admin ' . $admin->name);
         } else {
         return redirect('/')->with('error', 'Invalid email or password');
         }

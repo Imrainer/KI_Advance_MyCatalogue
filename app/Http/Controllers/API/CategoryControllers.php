@@ -20,8 +20,7 @@ class CategoryControllers extends ApiController
 
     // <!---Membuat Category--!>
     public function create(Request $request)
-    {   $userId = Auth::id();
-        $categories=[
+    {   $categories=[
             'category'=>$request->category,
         ];
         $categories['id'] = Str::uuid()->toString();
@@ -33,8 +32,7 @@ class CategoryControllers extends ApiController
      // <!---Membaca Category--!>
      public function read(Request $Request)
      {
-        $userId = Auth::user()->id;
-        $categories = Categories::where('created_by', $userId)->get();
+        $categories = Categories::get();
       
         return Api::createApi(200, 'successfully', $categories);
      }

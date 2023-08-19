@@ -16,7 +16,7 @@ use Illuminate\Support\Str;
 
 class CatalogueControllers extends ApiController
 {   
-    // <!--MENAMPILKAN CATALOGUE SESUAI USER YANG LOGIN--!>
+    // <!--MENAMPILKAN CATALOGUE--!>
     public function index()
     {   $catalogue = Catalogue::with('photoCarousel')->get();
     

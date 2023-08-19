@@ -19,7 +19,7 @@ class CarouselControllers extends ApiController
   
       // <!--MENAMPILKAN CAROUSEL BY ID--!>
       public function byId($uuid)
-      {   $carousel = Carousel::where('id', $uuid)->first();
+      {   $carousel = Photo_Carousel::where('id', $uuid)->first();
   
           if (!$carousel) {
               return Api::createApi(404, 'carousel not found');
@@ -58,42 +58,12 @@ class CarouselControllers extends ApiController
     // <!---MENGEDIT CATALOGUE--!>
     public function edit(Request $request, $uuid)
     {   
-        $carousel = Catalogue::findOrFail($uuid);
-        $validatedData = $request->validate([
-            'carousel' => 'nullable|image|max:3072'
-            ]);
-       
-        if ($request->file('carousel')) {
-            $carousel = $request->file('carousel')->store('catalogue-carousel_picture');
-        } else {
-            $carousel = $carousel['carousel'];
-        }
-
-        if ($request->input('catalogue_id')) {
-            $catalogue_id = $request->input('catalogue_id');
-        } else {
-            $catalogue_id = $catalogue['catalogue_id'];
-        }
-        
-        $catalogue->update([
-            'carousel'=>$carousel,
-            'catalogue_id'=>$catalogue_id,
-        ]);
-
-        if($catalogue['photo_thumbnail']) {
-            $catalogue->photo_thumbnail= 'https://magang.crocodic.net/ki/Rainer/KI_Advance_MyCatalogue/public/storage/'.$catalogue['photo_thumbnail'];
-        } else {
-            $catalogue->photo_thumbnail = null;
-        }
-
-        return Api::createApi(200, 'successfully updated catalogue', $catalogue);
-
     }
 
     // <!---MENGHAPUS CATALOGUE--!>
     public function delete(Request $request, $id)
     {   
-        $carousel = Carousel::findOrFail($id);
+        $carousel = Photo_Carousel::findOrFail($id);
     
         $carousel->delete();
 

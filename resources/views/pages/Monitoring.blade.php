@@ -1,4 +1,4 @@
-<x-layout title="monitoring">
+<x-layout title="Monitoring | Jelajah Nusantara">
 <style>
 .dark_blue{
     background-color:  rgb(16, 23, 41);
@@ -22,9 +22,9 @@
         </div> 
         
         <div class="card border-primary mb-3 ms-5 mt-3 col-md-4 " style="max-height: 12rem;">
-        <div class="card-header  dark_blue text-light bg-gradient">Session</div>
+        <div class="card-header  dark_blue text-light bg-gradient">User</div>
         <div class="card-body">
-            <h1 class="card-title text-center">5</h1>
+            <h1 class="card-title text-center">{{$userCount}}</h1>
         </div>
         </div>
 
@@ -34,23 +34,23 @@
 
 <div class="d-flex ms-5 mt-3">
 <div class="card border-primary mb-3 shadow col-md-5" style="max-width: 18rem;">
-    <div class="card-header text-center dark_blue bg-gradient text-light ">User</div>
+    <div class="card-header text-center dark_blue bg-gradient text-light ">Catalogue</div>
     <div class="card-body">
-        <h1 class="card-title text-center">{{$userCount}}</h1>
+        <h1 class="card-title text-center">{{$catalogueCount}}</h1>
     </div>
     </div>
 
     <div class="card border-primary mb-3 shadow mx-5 col-md-5" style="max-width: 18rem;">
-        <div class="card-header text-center dark_blue bg-gradient text-light ">Note</div>
+        <div class="card-header text-center dark_blue bg-gradient text-light ">Province</div>
         <div class="card-body">
-            <h1 class="card-title text-center">{{$noteCount}}</h1>
+            <h1 class="card-title text-center">{{$provinceCount}}</h1>
         </div>
         </div>
 
         <div class="card border-primary mb-3 shadow col-md-5" style="max-width: 18rem;">
-            <div class="card-header text-center dark_blue bg-gradient text-light ">Categories</div>
+            <div class="card-header text-center dark_blue bg-gradient text-light ">City</div>
             <div class="card-body">
-                <h1 class="card-title text-center">{{$categoriesCount}}</h1>
+                <h1 class="card-title text-center">{{$cityCount}}</h1>
             </div>
             </div>
 </div>
